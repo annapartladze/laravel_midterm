@@ -1,5 +1,12 @@
 <tr>
-    <td>{{ $album->title }}</td>
+    <td>
+        {{ $album->title }}
+
+        @if($album->duration_minutes > 60)
+            <span class="album-label">Long Album</span>
+        @endif
+    </td>
+
     <td>{{ $album->artist }}</td>
     <td>{{ $album->genre }}</td>
     <td>{{ $album->release_year }}</td>

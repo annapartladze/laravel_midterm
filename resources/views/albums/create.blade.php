@@ -4,35 +4,50 @@
 
     <h2>Add New Album</h2>
 
-    {{-- Display validation errors --}}
+    <p class="form-description">
+        Enter the details below to add a new album to your catalogue.
+    </p>
+
     @if($errors->any())
-        <div>
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+        <div class="error-message">
+            Please correct the errors below.
         </div>
     @endif
 
-    <form action="{{ route('albums.store') }}" method="POST">
+    <form action="{{ route('albums.store') }}" method="POST" class="album-form">
         @csrf
 
         <div>
             <label for="title">Album Title:</label>
-            <input type="text" id="title" name="title"
-                   value="{{ old('title') }}" required>
-        </div>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value="{{ old('title') }}"
+                maxlength="150"
+                required
+            >
 
-        <br>
+            @error('title')
+                <p class="field-error">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div>
             <label for="artist">Artist:</label>
-            <input type="text" id="artist" name="artist"
-                   value="{{ old('artist') }}" required>
-        </div>
+            <input
+                type="text"
+                id="artist"
+                name="artist"
+                value="{{ old('artist') }}"
+                maxlength="100"
+                required
+            >
 
-        <br>
+            @error('artist')
+                <p class="field-error">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div>
             <label for="genre">Genre:</label>
@@ -46,39 +61,66 @@
                 <option value="Jazz" {{ old('genre') == 'Jazz' ? 'selected' : '' }}>Jazz</option>
                 <option value="Hip-Hop" {{ old('genre') == 'Hip-Hop' ? 'selected' : '' }}>Hip-Hop</option>
             </select>
-        </div>
 
-        <br>
+            @error('genre')
+                <p class="field-error">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div>
             <label for="release_year">Release Year:</label>
-            <input type="number" id="release_year" name="release_year"
-                   value="{{ old('release_year') }}" required>
-        </div>
+            <input
+                type="number"
+                id="release_year"
+                name="release_year"
+                value="{{ old('release_year') }}"
+                min="1"
+                required
+            >
 
-        <br>
+            @error('release_year')
+                <p class="field-error">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div>
             <label for="track_count">Number of Tracks:</label>
-            <input type="number" id="track_count" name="track_count"
-                   value="{{ old('track_count') }}" required>
-        </div>
+            <input
+                type="number"
+                id="track_count"
+                name="track_count"
+                value="{{ old('track_count') }}"
+                min="1"
+                required
+            >
 
-        <br>
+            @error('track_count')
+                <p class="field-error">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div>
             <label for="duration_minutes">Duration (minutes):</label>
-            <input type="number" id="duration_minutes" name="duration_minutes"
-                   value="{{ old('duration_minutes') }}" required>
+            <input
+                type="number"
+                id="duration_minutes"
+                name="duration_minutes"
+                value="{{ old('duration_minutes') }}"
+                min="1"
+                required
+            >
+
+            @error('duration_minutes')
+                <p class="field-error">{{ $message }}</p>
+            @enderror
         </div>
 
-        <br>
-
         <button type="submit">Save Album</button>
-    </form>
 
-    <p>
-        <a href="{{ route('albums.index') }}">Back to Albums</a>
-    </p>
+        <a href="{{ route('albums.index') }}" class="back-link">
+            Back to Albums
+        </a>
+
+    </form>
 
 @endsection

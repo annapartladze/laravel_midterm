@@ -1,0 +1,384 @@
+
+/* ==========================================
+   1. GENERAL SETTINGS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f6fa;
+    color: #25283d;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. HEADER AND NAVIGATION
+========================================== */
+
+header {
+    background-color: #ffffff;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e8e9f0;
+}
+
+header h1 {
+    font-size: 23px;
+    color: #29264d;
+    font-weight: 700;
+}
+
+header nav {
+    display: flex;
+    gap: 24px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #6254d9;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: #4034a8;
+}
+
+/* ==========================================
+   3. MAIN CONTENT
+========================================== */
+
+main {
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 35px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(30, 30, 60, 0.05);
+}
+
+h2 {
+    font-size: 27px;
+    margin-bottom: 22px;
+    color: #29264d;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   4. LINKS AND BUTTONS
+========================================== */
+
+a {
+    color: #6254d9;
+}
+
+.add-button {
+    display: inline-block;
+    background-color: #6254d9;
+    color: #ffffff;
+    border: none;
+    padding: 10px 17px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.add-button:hover {
+    background-color: #4034a8;
+}
+
+button {
+    background-color: #6254d9;
+    color: #ffffff;
+    border: none;
+    padding: 10px 17px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #4034a8;
+}
+
+/* ==========================================
+   5. SEARCH AND FILTER
+========================================== */
+
+.search-form {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+input,
+select {
+    padding: 11px 13px;
+    border: 1px solid #dfe1eb;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    background-color: #ffffff;
+    color: #25283d;
+}
+
+input:focus,
+select:focus {
+    border-color: #6254d9;
+    box-shadow: 0 0 0 3px rgba(98, 84, 217, 0.1);
+}
+
+/* ==========================================
+   6. ALBUM TABLE
+========================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #f3f2fc;
+}
+
+th {
+    color: #49436f;
+    font-weight: 600;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #ececf2;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #faf9ff;
+}
+
+td a {
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+td button {
+    background-color: #e94f64;
+    padding: 7px 11px;
+    font-size: 12px;
+}
+
+td button:hover {
+    background-color: #c83248;
+}
+
+/* Long album label */
+
+.album-label {
+    display: inline-block;
+    background-color: #f3f2fc;
+    color: #6254d9;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+/* ==========================================
+   7. SUCCESS AND VALIDATION MESSAGES
+========================================== */
+
+.success-message {
+    background-color: #e8f8ef;
+    color: #207544;
+    padding: 13px;
+    border-radius: 7px;
+    margin: 15px 0;
+}
+
+.error-message {
+    background-color: #fff0f0;
+    color: #b42332;
+    padding: 13px;
+    border-radius: 7px;
+    margin: 15px 0;
+}
+
+.field-error {
+    color: #c83248;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+main ul {
+    padding-left: 25px;
+}
+
+/* ==========================================
+   8. ALBUM FORMS
+========================================== */
+
+.album-form {
+    max-width: 600px;
+}
+
+.album-form div {
+    margin-bottom: 18px;
+}
+
+.album-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #49436f;
+}
+
+.album-form input,
+.album-form select {
+    display: block;
+    width: 100%;
+}
+
+.form-description {
+    color: #77758b;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.album-form button {
+    margin-top: 8px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   9. CUSTOM PAGINATION
+========================================== */
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ececf2;
+}
+
+.pagination-info {
+    color: #77758b;
+    font-size: 13px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pagination .page-link,
+.pagination .page-active,
+.pagination .page-disabled {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.pagination .page-link {
+    background-color: #f3f2fc;
+    color: #6254d9;
+    transition: background-color 0.2s;
+}
+
+.pagination .page-link:hover {
+    background-color: #e6e3fa;
+}
+
+.pagination .page-active {
+    background-color: #6254d9;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.pagination .page-disabled {
+    background-color: #f5f5f7;
+    color: #aaa9b5;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   10. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    main {
+        margin: 20px 12px;
+        padding: 20px;
+        overflow-x: auto;
+    }
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form input,
+    .search-form select,
+    .search-form button {
+        width: 100%;
+    }
+
+    table {
+        min-width: 750px;
+    }
+
+    .pagination-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

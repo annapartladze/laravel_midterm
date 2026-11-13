@@ -1,10 +1,11 @@
+
 # Music Album Catalogue
 
 ## Project Description
 
 Music Album Catalogue is a Laravel web application that allows users to manage a collection of music albums.
 
-Users can view, add, edit, delete, search, and filter albums by genre. The application also supports pagination.
+Users can view, add, edit, delete, search, and filter albums by genre. The application also supports pagination and form validation.
 
 ## Technologies Used
 
@@ -14,6 +15,7 @@ Users can view, add, edit, delete, search, and filter albums by genre. The appli
 - Blade
 - Eloquent ORM
 - HTML
+- CSS
 
 ## Database
 
@@ -46,8 +48,16 @@ Table name: `albums`
 - Combine search and genre filtering.
 - Paginate results (10 albums per page).
 - Validate submitted data.
+- Display success and validation messages.
 
 ## Installation and Setup
+
+### Requirements
+
+- PHP 8.3 or higher
+- Composer
+- MySQL
+- Laravel dependencies
 
 ### 1. Clone the repository
 
@@ -74,7 +84,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-### 5. Configure the database
+### 5. Create the database
 
 Create a MySQL database:
 
@@ -82,7 +92,9 @@ Create a MySQL database:
 CREATE DATABASE music_albums_db;
 ```
 
-Update the database settings in `.env`:
+### 6. Configure the database
+
+Update the database settings in `.env` using your own MySQL credentials:
 
 ```env
 DB_CONNECTION=mysql
@@ -93,7 +105,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Configure the local session and cache drivers:
+For local development, configure:
 
 ```env
 SESSION_DRIVER=file
@@ -101,17 +113,13 @@ CACHE_STORE=file
 QUEUE_CONNECTION=sync
 ```
 
-### 6. Run migrations
+### 7. Run migrations and seed the database
 
 ```bash
-php artisan migrate
+php artisan migrate:fresh --seed
 ```
 
-### 7. Seed the database
-
-```bash
-php artisan db:seed --class=AlbumSeeder
-```
+This command creates the database tables and inserts 25 sample albums.
 
 ### 8. Start the development server
 

@@ -5,16 +5,20 @@
     <h2>All Albums</h2>
 
     <p>
-        <a href="{{ route('albums.create') }}">+ Add New Album</a>
+        <a href="{{ route('albums.create') }}" class="add-button">
+            + Add New Album
+        </a>
     </p>
 
     {{-- Success message --}}
     @if(session('success'))
-        <p>{{ session('success') }}</p>
+        <div class="success-message">
+            {{ session('success') }}
+        </div>
     @endif
 
     {{-- Search and genre filter --}}
-    <form action="{{ route('albums.index') }}" method="GET">
+    <form action="{{ route('albums.index') }}" method="GET" class="search-form">
 
         <input
             type="text"
@@ -30,6 +34,8 @@
             <option value="R&B" {{ request('genre') == 'R&B' ? 'selected' : '' }}>R&B</option>
             <option value="Soul" {{ request('genre') == 'Soul' ? 'selected' : '' }}>Soul</option>
             <option value="Electronic" {{ request('genre') == 'Electronic' ? 'selected' : '' }}>Electronic</option>
+            <option value="Hip-Hop" {{ request('genre') == 'Hip-Hop' ? 'selected' : '' }}>Hip-Hop</option>
+            <option value="Jazz" {{ request('genre') == 'Jazz' ? 'selected' : '' }}>Jazz</option>
         </select>
 
         <button type="submit">Search / Filter</button>
@@ -38,10 +44,8 @@
 
     </form>
 
-    <br>
-
     {{-- Albums table --}}
-    <table border="1" cellpadding="10">
+    <table>
         <thead>
             <tr>
                 <th>Title</th>
